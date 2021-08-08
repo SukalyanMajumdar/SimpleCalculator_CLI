@@ -40,13 +40,12 @@ stages:
       - job: "Release_Job"
         dependsOn: "Build_Job"
         displayName: "Releasing the exe to Storage Account"
-        variables:
-          rel_src_path: 
-          - task: AzureFileCopy@4
-            displayName: 'AzureBlob File Copy'
-            inputs:
-              SourcePath: $(rel_src_path)
-              azureSubscription: 'KAMZ-sub-1 (0fddd6bc-7791-4071-8c37-13c244582193)'
-              Destination: AzureBlob
-              storage: devsa3
-              ContainerName: release
+        steps:
+        - task: AzureFileCopy@4
+          displayName: 'AzureBlob File Copy'
+          inputs:
+            SourcePath: $(rel_src_path)
+            azureSubscription: 'KAMZ-sub-1 (0fddd6bc-7791-4071-8c37-13c244582193)'
+            Destination: AzureBlob
+            storage: devsa3
+            ContainerName: release
