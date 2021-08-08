@@ -41,11 +41,4 @@ stages:
         dependsOn: "Build_Job"
         displayName: "Releasing the exe to Storage Account"
         steps:
-        - task: AzureFileCopy@4
-          displayName: 'AzureBlob File Copy'
-          inputs:
-            SourcePath: .\dist\SimpleCalculator_CLI\SimpleCalculator_CLI.exe
-            azureSubscription: 'KAMZ-sub-1 (0fddd6bc-7791-4071-8c37-13c244582193)'
-            Destination: AzureBlob
-            storage: devsa3
-            ContainerName: release
+        - powershell: azcopy cp ".\dist\SimpleCalculator_CLI\" "https://devsa3.blob.core.windows.net/release/"
