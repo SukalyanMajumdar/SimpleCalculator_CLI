@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: kamz-agent
+  name: kamz-agent
 
 stages:
   - stage: "CI"
