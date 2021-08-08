@@ -9,6 +9,9 @@ trigger:
 pool:
   name: kamz-agent
 
+variables:
+  rel_src_path: 
+
 stages:
   - stage: "CI"
     jobs:
@@ -24,7 +27,7 @@ stages:
         steps:
           - script: python test_calc.py
 
-  - stage: "Build"
+  - stage: "CD"
     dependsOn: "CI"
     jobs:
       - job: "Build_Job"
@@ -32,6 +35,18 @@ stages:
         steps:           
         - script: pip install -r requirements.txt
         - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --clean --version-file=version.txt
-        - powershell: pwd 
-        - powershell: dir 
-        - powershell: dist\SimpleCalculator_CLI\SimpleCalculator_CLI.exe
+        - powershell: $(rel_src_path) = pwd
+
+      - job: "Release_Job"
+        dependsOn: "Build_Job"
+        displayName: "Releasing the exe to Storage Account"
+        variables:
+          rel_src_path: 
+          - task: AzureFileCopy@4
+            displayName: 'AzureBlob File Copy'
+            inputs:
+              SourcePath: $(rel_src_path)
+              azureSubscription: 'KAMZ-sub-1 (0fddd6bc-7791-4071-8c37-13c244582193)'
+              Destination: AzureBlob
+              storage: devsa3
+              ContainerName: release
