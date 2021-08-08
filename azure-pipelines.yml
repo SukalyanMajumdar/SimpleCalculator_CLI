@@ -25,7 +25,6 @@ stages:
           - script: python test_calc.py
 
   - stage: "Build"
-    dependsOn: "CI"
     jobs:
       - job: "Build_Job"
         displayName: "Building the exe"
