@@ -9,9 +9,6 @@ trigger:
 pool:
   name: kamz-agent
 
-variables:
-  rel_src_path: 
-
 stages:
   - stage: "CI"
     jobs:
