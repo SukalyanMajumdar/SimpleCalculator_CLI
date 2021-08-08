@@ -35,7 +35,8 @@ stages:
         steps:           
         - script: pip install -r requirements.txt
         - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --clean --version-file=version.txt
-        - powershell: $(rel_src_path) = pwd
+        - powershell: pwd
+        - 
 
       - job: "Release_Job"
         dependsOn: "Build_Job"
@@ -44,7 +45,7 @@ stages:
         - task: AzureFileCopy@4
           displayName: 'AzureBlob File Copy'
           inputs:
-            SourcePath: $(rel_src_path)
+            SourcePath: .\dist\SimpleCalculator_CLI\SimpleCalculator_CLI.exe
             azureSubscription: 'KAMZ-sub-1 (0fddd6bc-7791-4071-8c37-13c244582193)'
             Destination: AzureBlob
             storage: devsa3
