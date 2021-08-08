@@ -41,4 +41,4 @@ stages:
         dependsOn: "Build_Job"
         displayName: "Releasing the exe to Storage Account"
         steps:
-        - powershell: azcopy cp ".\dist\SimpleCalculator_CLI\" "https://devsa3.blob.core.windows.net/release/"
+          - powershell: azcopy cp ".\dist\SimpleCalculator_CLI\" "https://devsa3.blob.core.windows.net/release/"
