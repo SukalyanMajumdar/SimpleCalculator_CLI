@@ -1,0 +1,34 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: kamz-agent
+
+stages:
+  - stage: "CI"
+    jobs:
+      - job: "Lint_Test"
+        displayName: 'Run Lint test(s)'
+        steps:
+          - script: pip install -r requirements.txt
+          - script: flake8 ui.py
+
+      - job: "Unit_Test"
+        displayName: 'Run Unit test(s)'
+        dependsOn: "Lint_Test"
+        steps:
+          - script: python test_calc.py
+
+  - stage: "Build"
+    dependsOn: "CI"
+    jobs:
+      - job: "Build_Job"
+        displayName: "Building the exe"
+        steps:           
+        - script: pip install -r requirements.txt
+        - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --clean --version-file=version.txt
