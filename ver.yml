@@ -1,0 +1,7 @@
+Version: "1.0.0.0"
+CompanyName: "KAMZ Corporation"
+FileDescription: "Simple Calculator - CLI : A CLI based Calculator app, written , tested in Python, version controled in github, CICD controled in Azure DevOps"
+InternalName: "SimpleCalculator_CLI"
+LegalCopyright: KAMZCorp
+OriginalFilename: SimpleCalculator_CLI.exe
+ProductName: "Simple Calculator - CLI"
