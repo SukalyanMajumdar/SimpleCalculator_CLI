@@ -39,6 +39,7 @@ stages:
 
       - job : "Release_Job"
         displayName: "Release the exe"
+        dependsOn: "Build_Job"
         steps:
           - task: AzureFileCopy@4
             inputs:
