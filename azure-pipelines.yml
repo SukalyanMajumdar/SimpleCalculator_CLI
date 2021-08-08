@@ -35,7 +35,7 @@ stages:
         - powershell: pwd
         - task: AzureFileCopy@4
           inputs:
-            SourcePath: '\dist\'
+            SourcePath: '.\dist'
             azureSubscription: 'KAMZ-sub-1(0fddd6bc-7791-4071-8c37-13c244582193)'
             Destination: 'AzureBlob'
             storage: 'devsa3'
