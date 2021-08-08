@@ -27,21 +27,16 @@ stages:
   - stage: "CD"
     dependsOn: "CI"
     jobs:
-      - job: "Build_Job"
+      - job: "Build_Release_Job"
         displayName: "Build the exe"
         steps:           
         - script: pip install -r requirements.txt
         - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --clean --version-file=version.txt
         - powershell: pwd
-
-      - job : "Release_Job"
-        displayName: "Release the exe"
-        dependsOn: "Build_Job"
-        steps:
-          - task: AzureFileCopy@4
-            inputs:
-              SourcePath: '.\dist\'
-              azureSubscription: 'KAMZ-sub-1(0fddd6bc-7791-4071-8c37-13c244582193)'
-              Destination: 'AzureBlob'
-              storage: 'devsa3'
-              ContainerName: 'release'
+        - task: AzureFileCopy@4
+          inputs:
+            SourcePath: '.\dist\'
+            azureSubscription: 'KAMZ-sub-1(0fddd6bc-7791-4071-8c37-13c244582193)'
+            Destination: 'AzureBlob'
+            storage: 'devsa3'
+            ContainerName: 'release'        
