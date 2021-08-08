@@ -27,7 +27,7 @@ stages:
   - stage: "CD"
     dependsOn: "CI"
     jobs:
-      - job: "Build_Release_Job"
+      - job: "Build_Job"
         displayName: "Build the exe"
         steps:           
         - script: pip install -r requirements.txt
