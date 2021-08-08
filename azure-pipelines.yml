@@ -32,4 +32,4 @@ stages:
         steps:           
         - script: pip install -r requirements.txt
         - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --clean --version-file=version.txt
-        - script: pwd 
+        - powershell: pwd 
