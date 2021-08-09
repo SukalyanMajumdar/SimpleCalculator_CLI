@@ -36,7 +36,7 @@ stages:
         - task: AzureFileCopy@4
           inputs:
             SourcePath: '.\dist'
-            azureSubscription: 'KAMZ-sub-1(0fddd6bc-7791-4071-8c37-13c244582193)'
+            azureSubscription: 'spn101'
             Destination: 'AzureBlob'
             storage: 'devsa3'
             ContainerName: 'release'
