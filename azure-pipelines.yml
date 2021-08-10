@@ -31,11 +31,11 @@ stages:
         displayName: "Build and Release the exe"
         steps:           
         - script: pip install -r requirements.txt
-        - script: pyinstaller ui.py --onefile --name SimpleCalculator_CLI --clean --version-file=version.txt -y
-        - powershell: ls
+        - script: pyinstaller ui.py --dir --name SimpleCalculator_CLI --clean --version-file=version.txt -y
+        - powershell: ls .\dist\SimpleCalculator_CLI
         - task: AzureFileCopy@4
           inputs:
-            SourcePath: '.\SimpleCalculator_CLI.exe'
+            SourcePath: '.\dist\SimpleCalculator_CLI\SimpleCalculator_CLI.exe'
             azureSubscription: 'spn101'
             Destination: 'AzureBlob'
             storage: 'devsa3'
