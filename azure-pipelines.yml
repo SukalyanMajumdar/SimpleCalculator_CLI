@@ -34,6 +34,7 @@ stages:
         - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --clean --version-file=version.txt
         - powershell: pwd
         - task: AzureFileCopy@4
+          displayName: "Release the exe"
           inputs:
             SourcePath: '.\dist'
             azureSubscription: 'spn101'
