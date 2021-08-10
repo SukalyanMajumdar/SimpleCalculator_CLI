@@ -39,6 +39,12 @@ stages:
             azureSubscription: 'spn101'
             Destination: 'AzureBlob'
             storage: 'devsa3'
-            ContainerName: 'release'   
-        
+            ContainerName: 'release\executable'   
+        - task: AzureFileCopy@4
+          inputs:
+            SourcePath: '.\dist\SimpleCalculator_CLI\SimpleCalculator_CLI.exe'
+            azureSubscription: 'spn101'
+            Destination: 'AzureBlob'
+            storage: 'devsa3'
+            ContainerName: 'release\totalRelease'         
      
