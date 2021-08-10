@@ -35,7 +35,7 @@ stages:
         - powershell: ls
         - task: AzureFileCopy@4
           inputs:
-            SourcePath: '.\dist\SimpleCalculator_CLI\SimpleCalculator_CLI.exe'
+            SourcePath: '.\dist'
             azureSubscription: 'spn101'
             Destination: 'AzureBlob'
             storage: 'devsa3'
