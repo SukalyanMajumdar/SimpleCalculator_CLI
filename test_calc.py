@@ -15,6 +15,18 @@ class testclass_calc(unittest.TestCase):
 
         # print("Result of test_calculate is: "+testValidate)
 
+    def test_inputValidate2(self):
+        # Arrange
+        testInput = "25"
+
+        # Act
+        testResult = calc.inputValidate2(testInput)
+
+        # Assert
+        self.assertEqual(testResult, 'go')
+
+        # print("Result of test_calculate is: "+testValidate)
+
     def test_calculate(self):
         # Arrange
         testInput1 = "20"
