@@ -4,7 +4,7 @@ A Simple CLI based Python Calculator in .exe, version controlled in Github, test
 ## Release / Download Link :
 https://devsa3.blob.core.windows.net/simplecalculatorrelease/SimpleCalculator_CLI.zip
 
-Azure Devops Pipeline configuration : https://dev.azure.com/KAMZcorp/SimpleCalculator_CLI
+Azure Devops configuration : https://dev.azure.com/KAMZcorp/SimpleCalculator_CLI
 
 ## Changelog :
 ### Version : 1.0.1
