@@ -14,12 +14,16 @@ stages:
     jobs:
       - job: "Lint_Test"
         displayName: 'Run Lint test(s)'
+        workspace:
+          clean: all
         steps:
           - script: pip install -r requirements.txt
           - script: flake8 ui.py
 
       - job: "Unit_Test"
         displayName: 'Run Unit test(s)'
+        workspace:
+          clean: all        
         dependsOn: "Lint_Test"
         steps:
           - script: python test_calc.py
@@ -28,12 +32,14 @@ stages:
     dependsOn: "CI"
     jobs:
       - job: "Build_Release_Job"
+        workspace:
+          clean: all      
         displayName: "Build and Release the exe"
         steps:           
         - script: pip install -r requirements.txt
         - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --clean --version-file=version.txt -y
         - powershell: ls .\dist\SimpleCalculator_CLI
-        - powershell: compress-archive -path '.\dist' -destinationpath '.\SimpleCalculator_CLI.zip' -compressionlevel optimal
+        - powershell: compress-archive -path '.\dist' -destinationpath '.\SimpleCalculator_CLI.zip' -compressionlevel optimal -Force
         - task: AzureFileCopy@4
           inputs:
             SourcePath: '.\SimpleCalculator_CLI.zip'
