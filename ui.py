@@ -19,8 +19,19 @@ while 1:
         else:
             break
 
-    val1 = input("\nInput Integer1: ")
-    val2 = input("Input Integer2: ")
+    while 1:
+        val1 = input("\nInput Integer1: ")
+        if calc.inputValidate2(val1) != 'go':
+            print("\nInvalid Integer1 input, please retry")
+        else:
+            break
+
+    while 2:
+        val2 = input("\nInput Integer2: ")
+        if calc.inputValidate2(val2) != 'go':
+            print("\nInvalid Integer2 input, please retry")
+        else:
+            break
 
     result = calc.calculate(val1, val2, choice)
 

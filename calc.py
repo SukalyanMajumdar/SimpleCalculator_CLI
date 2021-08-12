@@ -7,6 +7,14 @@ def inputValidate(inputVal):
         return None
 
 
+def inputValidate2(inputVal):
+
+    if (inputVal.isdigit()):
+        return 'go'
+    else:
+        return None
+
+
 def add(var1, var2):
     return int(var1) + int(var2)
 
