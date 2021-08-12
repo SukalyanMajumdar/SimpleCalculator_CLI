@@ -46,4 +46,4 @@ stages:
             azureSubscription: 'spn101'
             Destination: 'AzureBlob'
             storage: 'devsa3'
-            ContainerName: 'executable'      
+            ContainerName: 'simplecalculatorrelease'      
