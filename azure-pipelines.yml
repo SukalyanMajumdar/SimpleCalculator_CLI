@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: kamz-agent
+  name: kamz-agentpool
 
 stages:
   - stage: "CI"
