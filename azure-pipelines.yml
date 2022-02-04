@@ -19,7 +19,6 @@ stages:
         steps:
           - script: pip install -r requirements.txt
           - script: flake8 ui.py
-
       - job: "Unit_Test"
         displayName: 'Run Unit test(s)'
         workspace:
@@ -27,7 +26,6 @@ stages:
         dependsOn: "Lint_Test"
         steps:
           - script: python test_calc.py
-
   - stage: "CD"
     dependsOn: "CI"
     jobs:
