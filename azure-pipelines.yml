@@ -17,6 +17,10 @@ stages:
         workspace:
           clean: all
         steps:
+          - task: UsePythonVersion@0
+            displayName: 'Use Python 3.9'
+            inputs:
+              versionSpec: 3.8
           - script: pip install -r requirements.txt
           - script: flake8 ui.py
 
