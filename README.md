@@ -7,8 +7,9 @@ https://devsa3.blob.core.windows.net/simplecalculatorrelease/SimpleCalculator_CL
 Azure Devops configuration : https://dev.azure.com/KAMZcorp/SimpleCalculator_CLI/_build
 
 ## Changelog :
-### Version : 1.1.0
-* Fixed bug : Included shortcut
+### Version : 1.0.3
+* Fixed bug : Negative Integer inputs fixed
+* Fixed typo : ui.py
 
 ## Functionality:
 This CLI based Python app performs the four basic operations between 2 integers
