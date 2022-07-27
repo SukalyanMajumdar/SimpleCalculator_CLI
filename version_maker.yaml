@@ -1,0 +1,7 @@
+Version: 1.0.1
+CompanyName: KamzCorp
+FileDescription: This CLI based Python app performs the four basic operations between 2 integers
+InternalName: simplecalccli
+LegalCopyright: © KamzCorp. All rights reserved.
+OriginalFilename: SimpleCalculator_CLI.exe
+ProductName: SimpleCalculator_CLI

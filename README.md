@@ -7,8 +7,8 @@ https://devsa3.blob.core.windows.net/simplecalculatorrelease/SimpleCalculator_CL
 Azure Devops configuration : https://dev.azure.com/KAMZcorp/SimpleCalculator_CLI/_build
 
 ## Changelog :
-### Version : 1.0.1
-* Fixed bug : Input Integers are not validated
+### Version : 1.0.2
+* Fixed bug : Added Pyinstaller compa for Python 3.10 compatiblity
 
 ## Functionality:
 This CLI based Python app performs the four basic operations between 2 integers
