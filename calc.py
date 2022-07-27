@@ -1,18 +1,24 @@
 def inputValidate(inputVal):
     valid_choices = ["1", "2", "3", "4"]
 
-    if (inputVal.isdigit()) and (inputVal in valid_choices):
+    if (inputVal in valid_choices):
         return 'go'
     else:
         return None
 
 
 def inputValidate2(inputVal):
-
-    if (inputVal.isdigit()):
+    try:
+        int(inputVal)
         return 'go'
-    else:
+    except ValueError:
         return None
+    
+
+    # if (inputVal.isdigit()):
+    #     return 'go'
+    # else:
+    #     return None
 
 
 def add(var1, var2):

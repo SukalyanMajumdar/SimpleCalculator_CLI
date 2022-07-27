@@ -26,7 +26,7 @@ while 1:
         else:
             break
 
-    while 2:
+    while 1:
         val2 = input("\nInput Integer2: ")
         if calc.inputValidate2(val2) != 'go':
             print("\nInvalid Integer2 input, please retry")
