@@ -11,21 +11,21 @@ Azure Devops configuration : https://dev.azure.com/KAMZcorp/SimpleCalculator_CLI
 * Fixed bug : Negative Integer inputs fixed
 * Fixed typo : ui.py
 
-## Functionality:
+## Functionality :
 This CLI based Python app performs the four basic operations between 2 integers
 * Addition
 * Subtraction
 * Multiplication
 * Division
 
-## Algorithm :
+## Procedure :
 1. Welcome message is displayed
 2. User is provided with four basic operations
 3. Upon user input, the input is validated
 4. Upon invalid input, the code returns to Step 2
 5. Upon valid input, the user is requested to provide the first integer value
-6. The user is requested to provide the second integer value
-7. The operation is performed and result is displayed, ZeroDivisionError is carefully handled
+6. Post validation of the first integer, The user is requested to provide the second integer value
+7. Post validation of the second integer, chosen operation is performed and result is displayed, 'Zero Division Error' is carefully handled
 8. The user is requested to input if the calculator should be re-run from beginning
 9. Upon affirmative confirmation, the code returns to Step 2
 10. Upon negative confirmation, exit message is shown
