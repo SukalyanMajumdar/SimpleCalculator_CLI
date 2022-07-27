@@ -35,7 +35,8 @@ stages:
         displayName: "Build and Release the exe"
         steps:           
         - script: pip install -r requirements.txt
-        - script: pyinstaller ui.py --onefile --clean --name SimpleCalculator_CLI -y
+        - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI -y
+        # - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --clean -y
         - powershell: ls .\dist\SimpleCalculator_CLI
         - powershell: compress-archive -path '.\dist' -destinationpath '.\SimpleCalculator_CLI.zip' -compressionlevel optimal -Force
 
