@@ -8,7 +8,7 @@ Azure Devops configuration : https://dev.azure.com/KAMZcorp/SimpleCalculator_CLI
 
 ## Changelog :
 ### Version : 1.0.2
-* Fixed bug : Added Pyinstaller compa for Python 3.10 compatiblity
+* Fixed bug : Added Pyinstaller compatiblity for Python 3.10 compatiblity
 
 ## Functionality:
 This CLI based Python app performs the four basic operations between 2 integers
