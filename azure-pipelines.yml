@@ -36,9 +36,14 @@ stages:
         steps:           
         - script: pip install -r requirements.txt
         - powershell: create-version-file version_maker.yaml --outfile file_version_info.txt
-        - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --exclude-module _bootlocale --clean -y --version-file=file_version_info.txt # Added "--exclude-module _bootlocale" for Python 3.10 compatiblity
-        - powershell: ls .\dist\SimpleCalculator_CLI # Optional step for successful build
-        - powershell: compress-archive -path '.\dist' -destinationpath '.\SimpleCalculator_CLI.zip' -compressionlevel optimal -Force
+        - script: pyinstaller ui.py --onedir --name SimpleCalculator_CLI --distpath .\SimpleCalculator_CLI_files --exclude-module _bootlocale --clean -y --version-file=file_version_info.txt # Added "--exclude-module _bootlocale" for Python 3.10 compatiblity
+        - powershell: $WScriptShell = New-Object -ComObject WScript.Shell
+        - powershell: $TargetFile = ".\SimpleCalculator_CLI_files\SimpleCalculator_CLI\SimpleCalculator_CLI.exe"
+        - powershell: $ShortcutFile = ".\SimpleCalculator_CLI_files\SimpleCalculator_CLI.lnk"
+        - powershell: $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+        - powershell: $Shortcut.TargetPath = $TargetFile
+        - powershell: $Shortcut.Save()
+        - powershell: compress-archive -path '.\SimpleCalculator_CLI_files\' -destinationpath '.\SimpleCalculator_CLI.zip' -compressionlevel optimal -Force
         - task: AzureFileCopy@4
           inputs:
             SourcePath: '.\SimpleCalculator_CLI.zip'
