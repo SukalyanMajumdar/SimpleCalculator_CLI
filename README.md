@@ -45,7 +45,7 @@ This CLI based Python app performs the four basic operations between 2 integers
 5. (Release) After successful build, the .\dist folder is shipped to a Azure Storage Account
 6. The Entire process is version controlled in Github and automated using CI/CD pipelines by Azure DevOps
 
-requirements:
+## Requirements:
 * altgraph==0.17
 * flake8==3.9.2
 * future==0.18.2
