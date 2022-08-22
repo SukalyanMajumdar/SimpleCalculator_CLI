@@ -1,5 +1,5 @@
 # SimpleCalculator_CLI
-A Simple CLI based Python Calculator in .exe, version controlled in Github, tested and built in Azure DevOps
+A Simple CLI based Python Calculator in .exe, version controlled in Github, tested and built in Azure DevOps.
 
 ## Release / Download Link :
 https://devsa3.blob.core.windows.net/simplecalculatorrelease/SimpleCalculator_CLI.zip
